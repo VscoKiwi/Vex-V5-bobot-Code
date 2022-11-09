@@ -39,12 +39,59 @@ void set_roller(int input) {
 }
 //This sets the Rollar to spin the amount of an input
 
+int AutonNumber = 1;
 void pre_auton(void) {
   vexcodeInit();
+
+  Brain.Screen.setPenColor(blue);
+ for (int i = 0; i < 8; i++) {
+    Brain.Screen.setPenColor(blue);
+    Brain.Screen.drawRectangle(5+(60*i), 50, 50, 175, blue);
+  }
+  while(true) {
+    int x = Brain.Screen.xPosition();
+    int y = Brain.Screen.yPosition();
+    Brain.Screen.setFont(monoM);
+    if(50 < y && y < 50+175) {
+      for (int i = 0; i < 8;i++) {
+        if (5+(60*i) < x && x < (60*(i+1))-5) {
+          AutonNumber = i+1;
+        }
+      }
+    }
+    Brain.Screen.printAt(5, 30, "Current Auto: %d", AutonNumber); // %d is a formatting character that gets replaced with AutonNumber
+    wait(20, msec);
+    Brain.Screen.clearLine(1);
+  }
 }
 //Auton code
 void autonomous(void) {
 
+  if (AutonNumber == 1) {
+    set_tank(100,100);
+    set_roller(100);
+  }
+  else if (AutonNumber == 2) {
+    // Call Auton 
+  }
+  else if (AutonNumber == 3) {
+    // Call Auton 
+  }
+  else if (AutonNumber == 4) {
+    // Call Auton 
+  }
+  else if (AutonNumber == 5) {
+    // Call Auton 
+  }
+  else if (AutonNumber == 6) {
+    // Call Auton 
+  }
+  else if (AutonNumber == 7) {
+    // Call Auton 
+  }
+  else if (AutonNumber == 8) {
+    // Call Auton 
+  }
 }
 
 void usercontrol(void) {
@@ -74,7 +121,7 @@ void usercontrol(void) {
     wait(20,msec);
     //sleeps Zzzzzzz.... good night robot!
 }
-
+}
 int main() {
   
   Competition.autonomous(autonomous);
