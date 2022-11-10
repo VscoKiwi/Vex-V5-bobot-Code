@@ -125,7 +125,7 @@ void usercontrol(void) {
     
 
     if(Controller1.ButtonL2.pressing()) {
-      set_roller(100);
+      set_roller(500);
     }
     else {
       set_roller(0);
