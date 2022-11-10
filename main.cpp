@@ -11,10 +11,10 @@
 // Robot Configuration:
 // [Name]               [Type]        [Port(s)]
 // Controller1          controller                    
-// left_front           motor         2               
-// right_front          motor         3               
-// left_back            motor         4               
-// right_back           motor         5               
+// left_front           motor         11              
+// right_front          motor         2               
+// left_back            motor         18              
+// right_back           motor         20              
 // Roller               motor         1               
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
@@ -68,11 +68,24 @@ void pre_auton(void) {
 void autonomous(void) {
 
   if (AutonNumber == 1) {
-    set_tank(100,100);
-    set_roller(100);
+    set_tank(20,30);
+    wait(500, msec);
+    set_tank(0,0);
+    set_roller(125);
+    wait(75,msec);
+    set_roller(0);
   }
   else if (AutonNumber == 2) {
-    // Call Auton 
+    set_tank(100,100);
+    wait(250,msec);
+    set_tank(0,100);
+    wait(400,msec);
+    set_tank(20,20);
+    wait(75,msec);
+    set_tank(0,0);
+    set_roller(125);
+    wait(75,msec);
+    set_roller(0);
   }
   else if (AutonNumber == 3) {
     // Call Auton 
